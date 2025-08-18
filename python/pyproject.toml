@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "SO-App"
+version = "0.1.0"
+description = "SO example backend application for testing build system only"
+authors = ["ShipOps <info@shipops.cloud>"]
+readme = "README.md"
+packages = [{include = "so_app"}]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<3.15"
+fastapi = ">=0.116.1,<0.117.0"
+uvicorn = ">=0.35.0,<0.36.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+ruff = "^0.12.9"
+
+[tool.poetry.group.build.dependencies]
+pyinstaller = "^6.15.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+

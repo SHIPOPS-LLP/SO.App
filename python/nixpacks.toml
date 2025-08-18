@@ -1,0 +1,4 @@
+# https://nixpacks.com/docs/configuration/file
+
+[start]
+cmd = 'python ./app.py'
