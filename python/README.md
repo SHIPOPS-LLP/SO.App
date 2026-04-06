@@ -8,13 +8,17 @@ nixpacks build . --name app-by-nixpacks:0.1.0
 
 ### Build with custom Dockerfile (Option 2)
 
-Build image:
-
 ```shell
 docker build -t app-by-dockerfile:0.1.0 -f Dockerfile .
 ```
 
 > It creates a small image size, but requires the custom Dockerfile.
+
+### Build with custom Shell-script (Option 3)
+
+```shell
+SO_APP_NAME=app-by-shell SO_APP_VERSION=0.1.0 bash ./build.sh
+```
 
 ### Test
 

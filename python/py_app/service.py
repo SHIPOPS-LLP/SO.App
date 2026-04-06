@@ -11,7 +11,7 @@ from fastapi.openapi.docs import get_swagger_ui_html
 from fastapi.openapi.utils import get_openapi
 from fastapi.responses import JSONResponse, PlainTextResponse
 
-from so_app.app_info import AppInfo
+from py_app.app_info import AppInfo
 
 
 class AppService:
@@ -94,7 +94,7 @@ class AppService:
         self,
         api_ip: Optional[str] = "0.0.0.0",
         port: Optional[int] = 8080,
-        response: Optional[str] = "Hello World",
+        response: Optional[str] = "{}",
     ):
         self.response = response
         uvicorn.run(

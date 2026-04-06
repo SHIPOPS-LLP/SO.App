@@ -2,7 +2,7 @@
 
 import sys
 
-from so_app.service import AppService
+from py_app.service import AppService
 
 
 if __name__ == "__main__":

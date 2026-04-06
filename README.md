@@ -2,12 +2,15 @@
 
 ## Python Application
 
-Look at  [Python README.md](python/Py.README.md)
+Look at  [Python README.md](./python/README.md)
 
 ```shell
 cd python
 ```
 
-## NodeJS Application
+## NextJS Application
 
-_TODO_
+Look at  [NextJS README.md](./nextjs/README.md)
+```shell
+cd nextjs
+```

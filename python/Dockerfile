@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir poetry==2.1.4
 WORKDIR /opt/app-requirements
 
 COPY app.py pyproject.toml poetry.lock ./
-COPY so_app/. so_app/
+COPY py_app/. py_app/
 COPY static/. static/
 
 ENV POETRY_NO_INTERACTION=1 \
@@ -33,28 +33,28 @@ RUN set -eux; \
 # Install built sources and run
 FROM alpine:3.21
 
-ARG APP_HOME=/home/so
-
-RUN set -eux; \
-    adduser -D --home ${APP_HOME}/ so
-
-USER so
-
-WORKDIR /home/so
-
-COPY --from=build --chown=so:so /opt/app-requirements/dist/app ./app/
-
+ARG APP_USER=so
+ARG APP_HOME=home
+ARG APP_RESPONSE="Built with Dockerfile"
 ARG API_PORT=8080
 ARG DEBUG_MODE
 
-ENV APP_API_PORT=${API_PORT} \
+RUN set -eux; \
+    adduser -D --home /${APP_HOME}/${APP_USER}/ ${APP_USER}
+
+USER ${APP_USER}
+
+WORKDIR /${APP_HOME}/${APP_USER}
+
+COPY --from=build --chown=${APP_USER}:${APP_USER} /opt/app-requirements/dist/app ./app/
+
+ENV APP_RESPONSE=${APP_RESPONSE} \
+    APP_API_PORT=${API_PORT} \
     DEBUG=${DEBUG_MODE}
 
 EXPOSE ${APP_API_PORT}
 
-WORKDIR /home/so/app
+WORKDIR /${APP_HOME}/${APP_USER}/app
 
-ENTRYPOINT ["./app"]
-
-CMD ["{}"]
-
+# Shell mode to use APP_RESPONSE
+ENTRYPOINT ./app $(echo ${APP_RESPONSE})

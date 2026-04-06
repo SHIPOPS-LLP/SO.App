@@ -1,4 +1,6 @@
 # https://nixpacks.com/docs/configuration/file
 
 [start]
-cmd = 'python ./app.py'
+cmd = "python ./app.py 'Built with Nixpacks'"
+
+
