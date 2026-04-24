@@ -5,6 +5,7 @@
 ```shell
 railpack --verbose build . --name python-app-by-railpack:0.1.0
 ```
+> (!) Follow railpack instructions to prepare buildkit before
 
 ### Build with Nixpacks (Option 1) (obsolete)
 
