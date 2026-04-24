@@ -8,16 +8,21 @@
     "steps": {
         "setup": {
             "nixPkgs": [
-                "nodejs_18",
-                "npm-9_x"
+                "nodejs_18"
             ]
         },
         "install": {
+            "inputs": [
+                "setup"
+            ],
             "commands": [
-                "npm ci"
+                "npm ci --omit=dev"
             ]
         },
         "build": {
+            "inputs": [
+                "install"
+            ],
             "commands": [
                 "npm run build"
             ]
