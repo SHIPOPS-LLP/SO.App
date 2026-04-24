@@ -1,0 +1,29 @@
+{
+    "$schema": "https://schema.railpack.com",
+    "variables": {
+        "NODE_ENV": "production",
+        "PORT": "3000",
+        "HOSTNAME": "0.0.0.0"
+    },
+    "steps": {
+        "setup": {
+            "nixPkgs": [
+                "nodejs_18",
+                "npm-9_x"
+            ]
+        },
+        "install": {
+            "commands": [
+                "npm ci"
+            ]
+        },
+        "build": {
+            "commands": [
+                "npm run build"
+            ]
+        }
+    },
+    "deploy": {
+        "startCommand": "npm run start"
+    }
+}
