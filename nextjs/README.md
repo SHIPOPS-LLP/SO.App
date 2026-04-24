@@ -3,7 +3,7 @@
 ### Build with Railpack (Option 1)
 
 ```shell
-railpack --verbose build . --name nextjs-app-by-nixpacks:0.1.0
+railpack --verbose build . --name nextjs-app-by-railpack:0.1.0
 ```
 
 ### Build with Nixpacks (Option 1) (obsolete)
